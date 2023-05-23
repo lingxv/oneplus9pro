@@ -21,7 +21,7 @@ jobs:
       run: |
         cd kernel/msm-5.4/
         curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" |bash -
-        wget https://raw.githubusercontent.com/lingxv/oneplus9pro/main/kernelsufix.patch
+        wget https://gist.githubusercontent.com/lingxv/8989b28bd6efcba32fc77424723496fe/raw/7782d2e23affea3b004aef416477120c4cd1c91b/kernelsufix.patch
         git apply kernelsufix.patch
         cd -
     - name: Sync Clang
@@ -61,7 +61,7 @@ jobs:
       run: |
         cd kernel/msm-5.4/
         curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" |bash -
-        wget https://raw.githubusercontent.com/lingxv/oneplus9pro/main/kernelsufix.patch
+        wget https://gist.githubusercontent.com/lingxv/8989b28bd6efcba32fc77424723496fe/raw/7782d2e23affea3b004aef416477120c4cd1c91b/kernelsufix.patch
         git apply kernelsufix.patch
         cd -
     - name: Sync PGO Profiles
