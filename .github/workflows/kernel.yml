@@ -2,7 +2,8 @@ name: Kernel Build CI
 
 on:
   push:
-
+env:
+   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
   
@@ -102,8 +103,11 @@ jobs:
       with:
         name: release-zip
         path: ${{ github.workspace }}
+    - name: Release Tag
+      id: release_tag
+      run: echo "TAG_NAME=$(date -u +%d%m%Y%I%M)" >> $GITHUB_ENV
     - name: Create Release
-      run: gh release create op9 --generate-notes -p *.zip
+      run: gh release create ${{ env.TAG_NAME }} --generate-notes -p *.zip
     - name: Release Check
       run: gh release list -L 1 > list
     - name: Prepare release message
